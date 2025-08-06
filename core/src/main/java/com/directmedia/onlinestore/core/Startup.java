@@ -1,9 +1,9 @@
 package com.directmedia.onlinestore.core;
 
-import com.directmedia.onlinestore.entity.Artist;
-import com.directmedia.onlinestore.entity.Work;
+import com.directmedia.onlinestore.core.entity.Artist;
+import com.directmedia.onlinestore.core.entity.Work;
 
-import static com.directmedia.onlinestore.entity.Catalog.listOfWorks;
+import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
 public class Startup {
     public static void main(String... args) {

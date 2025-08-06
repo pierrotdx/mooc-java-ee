@@ -1,4 +1,4 @@
-package com.directmedia.onlinestore.entity;
+package com.directmedia.onlinestore.core.entity;
 
 public class Artist {
     private String name;
