@@ -13,6 +13,9 @@ public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
-        out.println("<html><body><h1>OnlineStore (backoffice)</h1><a href=\"catalogue\">Accès au catalogue des oeuvres</a></body></html>");
+        String catalogLink = "<a href=\"catalogue\">Accès au catalogue des oeuvres</a>";
+        String addWorkLink = "<a href=\"add-work-form.html\">Ajouter une oeuvre au catalogue</a>";
+        String nav = String.format("<nav><ul><li>%s</li><li>%s</li></ul></nav>", catalogLink, addWorkLink);
+        out.printf("<html><body><h1>OnlineStore (backoffice)</h1><div>%s</div></body></html>", nav);
     }
 }
