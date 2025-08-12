@@ -17,11 +17,11 @@ import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 public class CatalogueServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        if (listOfWorks.size() == 0) {
+        if (listOfWorks.isEmpty()) {
             setup();
-            PrintWriter out = resp.getWriter();
-            display(out);
         }
+        PrintWriter out = resp.getWriter();
+        display(out);
     }
 
     private static void setup() {

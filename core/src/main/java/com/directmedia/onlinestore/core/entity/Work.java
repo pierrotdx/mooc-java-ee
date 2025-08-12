@@ -1,7 +1,5 @@
 package com.directmedia.onlinestore.core.entity;
 
-import java.util.Iterator;
-
 public class Work {
     private String title;
     private String genre;
@@ -9,7 +7,7 @@ public class Work {
     private String summary;
     private Artist mainArtist;
 
-    private static int idCount = 0;
+    private static int lastId = 0;
     private long id;
 
     public String getTitle() {
@@ -70,7 +68,7 @@ public class Work {
     }
 
     private void createId() {
-        idCount++;
-        this.setId(idCount);
+        lastId++;
+        this.setId(lastId);
     }
 }
