@@ -1,0 +1,4 @@
+com\directmedia\onlinestore\core\entity\Catalog.class
+com\directmedia\onlinestore\core\entity\Work.class
+com\directmedia\onlinestore\core\Startup.class
+com\directmedia\onlinestore\core\entity\Artist.class

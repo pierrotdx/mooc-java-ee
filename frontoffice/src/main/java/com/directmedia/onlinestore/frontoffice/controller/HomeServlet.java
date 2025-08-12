@@ -14,6 +14,7 @@ public class HomeServlet extends HttpServlet  {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
+        resp.setContentType("text/html");
         out.println("<html><body><h1>OnlineStore</h1><a href=\"catalogue\">Accès au catalogue des oeuvres</a></body></html>");
     }
 }

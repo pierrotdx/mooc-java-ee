@@ -1,11 +1,16 @@
 package com.directmedia.onlinestore.core.entity;
 
+import java.util.Iterator;
+
 public class Work {
     private String title;
     private String genre;
     private int release;
     private String summary;
     private Artist mainArtist;
+
+    private static int idCount = 0;
+    private long id;
 
     public String getTitle() {
         return title;
@@ -47,10 +52,25 @@ public class Work {
         this.mainArtist = mainArtist;
     }
 
-    public Work() {}
+    public Work() {
+        this.createId();
+    }
 
     public Work(String title) {
+        this.createId();
         this.setTitle(title);
     }
 
+    public long getId() {
+        return id;
+    }
+
+    public  void setId(long id) {
+        this.id = id;
+    }
+
+    private void createId() {
+        idCount++;
+        this.setId(idCount);
+    }
 }

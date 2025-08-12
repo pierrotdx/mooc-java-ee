@@ -54,7 +54,8 @@ public class CatalogueServlet extends HttpServlet {
         listOfWorks.forEach(work -> {
             String title = work.getTitle();
             int release = work.getRelease();
-            out.printf("%s (%d)\n", title, release);
+            long id = work.getId();
+            out.printf("<a href=\"work-details?id=%d%n\">%s (%d)</a><br/>", id, title, release);
         });
     }
 }
