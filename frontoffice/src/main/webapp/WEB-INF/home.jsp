@@ -2,10 +2,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>OnlineStore home</title>
+        <title>OnlineStore home (jsp)</title>
     </head>
     <body>
         <h1>OnlineStore (jsp)</h1>
-        <a href=\"catalogue\">Accès au catalogue des oeuvres</a>
+        <a href="catalogue">Accès au catalogue des oeuvres</a>
     </body>
 </html>
