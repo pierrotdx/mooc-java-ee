@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -17,7 +18,8 @@ public class AuthenticationServlet extends HttpServlet  {
 
         boolean isSuccess = this.areValidCredentials(id, password);
         if (isSuccess) {
-            req.getSession();
+            HttpSession session = req.getSession();
+            session.setAttribute("userId", id);
         }
 
         this.sendResponse(req, resp, isSuccess);
@@ -36,9 +38,9 @@ public class AuthenticationServlet extends HttpServlet  {
     private void sendResponse(HttpServletRequest req, HttpServletResponse resp, boolean isSuccess) throws IOException {
         resp.setContentType("text/html");
 
-        String sessionId = req.getSession().getId();
-
-        String message = isSuccess ? String.format("<div>Vous êtes authentifié(e) avec succès en tant que %s.</div>", sessionId) : "<div>Identifiant et/ou mot de passe erroné(s)</div>";
+        HttpSession session = req.getSession();
+        String userId = (String) session.getAttribute("userId");
+        String message = isSuccess ? String.format("<div>Vous êtes authentifié(e) avec succès en tant que %s.</div>", userId) : "<div>Identifiant et/ou mot de passe erroné(s)</div>";
         String redirectionLink = isSuccess ? "<a href=\"home\">Accéder à la page d'accueil</a>" : "<a href=\"login.html\">Réessayer</a>";
 
         String htmlPage = String.format("<html><body>%s%s</body></html>", message , redirectionLink);
