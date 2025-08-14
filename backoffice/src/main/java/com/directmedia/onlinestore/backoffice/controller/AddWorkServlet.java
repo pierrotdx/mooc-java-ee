@@ -15,7 +15,7 @@ import java.io.PrintWriter;
 @WebServlet(name = "addWork", urlPatterns = { "/add-work" })
 public class AddWorkServlet extends HttpServlet {
     @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String title = req.getParameter("title");
         String artistName = req.getParameter("artist");
         int release = Integer.parseInt(req.getParameter("release"));
