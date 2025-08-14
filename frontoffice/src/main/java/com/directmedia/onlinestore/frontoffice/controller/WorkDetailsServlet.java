@@ -31,7 +31,14 @@ public class WorkDetailsServlet extends HttpServlet {
         String artistName = work.getMainArtist().getName();
         String header = String.format("<h3>%s (<em>%s</em>, %d)</h3>", work.getTitle(), artistName, work.getRelease());
         String subHeader = String.format("<div><em>%s</em><div>", work.getGenre());
-        String body = String.format("<div>%s</div>", work.getSummary());
+        String addToCartForm = this.getAddToCartForm(work);
+        String body = String.format("<div>%s</div>%s", work.getSummary(), addToCartForm);
         return String.format("<html><body><article>%s%s%s</article></body></html>", header, subHeader, body);
+    }
+
+    private String getAddToCartForm(Work work) {
+        String workInput = String.format("<input name=\"workId\" type=\"hidden\" value=\"%s\">", work.getId());
+        String submitInput = "<input type=\"submit\" value=\"Ajouter au caddie\">";
+        return String.format("<form action=\"addToCart\" method=\"post\">%s%s</form>", workInput, submitInput);
     }
 }
