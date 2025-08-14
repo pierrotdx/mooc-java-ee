@@ -7,7 +7,7 @@
 
     <servlet>
         <servlet-name>Home</servlet-name>
-        <jsp-file>/WEB-INF/home.jsp</jsp-file>
+        <jsp-file>/home.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
