@@ -1,7 +1,4 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" %>
-<%
-    String userId = (String)session.getAttribute("userId");
-%>
 
 <!DOCTYPE html>
 <html>
@@ -10,7 +7,7 @@
     </head>
     <body>
         <h1>OnlineStore (backoffice - jsp)</h1>
-        <div>Bonjour <%=userId%> (<a href="logout">Déconnexion</a>)</div>
+        <div>Bonjour ${userId} (<a href="logout">Déconnexion</a>)</div>
         <div>
             <nav>
                 <ul>
