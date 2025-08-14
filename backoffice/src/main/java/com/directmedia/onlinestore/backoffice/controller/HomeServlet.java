@@ -5,6 +5,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -12,8 +13,10 @@ import java.io.PrintWriter;
 public class HomeServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String sessionId = req.getSession().getId();
-        String welcomeUser = String.format("Bonjour %s", sessionId);
+        HttpSession session = req.getSession();
+
+        String userId = (String)session.getAttribute("userId");
+        String welcomeUser = String.format("Bonjour %s (<a href=\"logout\">Déconnexion</a>)", userId);
 
         String catalogLink = "<a href=\"catalogue\">Accès au catalogue des oeuvres</a>";
         String addWorkLink = "<a href=\"add-work-form.html\">Ajouter une oeuvre au catalogue</a>";
