@@ -16,8 +16,11 @@ public class AuthenticationServlet extends HttpServlet  {
         String password = req.getParameter("password");
 
         boolean isSuccess = this.areValidCredentials(id, password);
+        if (isSuccess) {
+            req.getSession();
+        }
 
-        this.sendResponse(resp, isSuccess);
+        this.sendResponse(req, resp, isSuccess);
     }
 
     private boolean areValidCredentials(String id, String password) {
@@ -30,10 +33,12 @@ public class AuthenticationServlet extends HttpServlet  {
         return false;
     }
 
-    private void sendResponse(HttpServletResponse resp, boolean isSuccess) throws IOException {
+    private void sendResponse(HttpServletRequest req, HttpServletResponse resp, boolean isSuccess) throws IOException {
         resp.setContentType("text/html");
 
-        String message = isSuccess ? "<div>Vous êtes authentifié(e) avec succès.</div>" : "<div>Identifiant et/ou mot de passe erroné(s)</div>";
+        String sessionId = req.getSession().getId();
+
+        String message = isSuccess ? String.format("<div>Vous êtes authentifié(e) avec succès en tant que %s.</div>", sessionId) : "<div>Identifiant et/ou mot de passe erroné(s)</div>";
         String redirectionLink = isSuccess ? "<a href=\"home\">Accéder à la page d'accueil</a>" : "<a href=\"login.html\">Réessayer</a>";
 
         String htmlPage = String.format("<html><body>%s%s</body></html>", message , redirectionLink);
