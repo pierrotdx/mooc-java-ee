@@ -37,7 +37,7 @@ public class WorkDetailsServlet extends HttpServlet {
     }
 
     private String getAddToCartForm(Work work) {
-        String workInput = String.format("<input type=\"hidden\" value=\"%s\">", work.getId());
+        String workInput = String.format("<input name=\"workId\" type=\"hidden\" value=\"%s\">", work.getId());
         String submitInput = "<input type=\"submit\" value=\"Ajouter au caddie\">";
         return String.format("<form action=\"addToCart\" method=\"post\">%s%s</form>", workInput, submitInput);
     }
