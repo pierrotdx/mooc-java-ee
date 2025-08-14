@@ -14,7 +14,8 @@ public class WorkAddedSuccessServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html");
 
-        String message = "<div>Le film a été ajouté.</div>";
+        long workId = (long)req.getAttribute("identifiantOeuvre");
+        String message = String.format("<div>Le film a été ajouté. Son identifiant est %d%n.</div>", workId);
         String redirectLink = "<a href=\"home\">Retour à la page d'accueil</a>";
         String htmlPage = String.format("<html><body>%s%s<body></html>", message, redirectLink);
 

@@ -27,6 +27,8 @@ public class AddWorkServlet extends HttpServlet {
             Work workToAdd = this.getWorkToAdd(title, artistName, release, genre, summary);
             Catalog.listOfWorks.add(workToAdd);
 
+            req.setAttribute("identifiantOeuvre", workToAdd.getId());
+
             RequestDispatcher disp = req.getRequestDispatcher("/work-added-success");
             disp.forward(req, resp);
         } catch (Exception exception) {
