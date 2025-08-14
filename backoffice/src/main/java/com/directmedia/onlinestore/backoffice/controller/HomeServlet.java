@@ -16,7 +16,7 @@ public class HomeServlet extends HttpServlet {
         HttpSession session = req.getSession();
 
         String userId = (String)session.getAttribute("userId");
-        String welcomeUser = String.format("Bonjour %s", userId);
+        String welcomeUser = String.format("Bonjour %s (<a href=\"logout\">Déconnexion</a>)", userId);
 
         String catalogLink = "<a href=\"catalogue\">Accès au catalogue des oeuvres</a>";
         String addWorkLink = "<a href=\"add-work-form.html\">Ajouter une oeuvre au catalogue</a>";
