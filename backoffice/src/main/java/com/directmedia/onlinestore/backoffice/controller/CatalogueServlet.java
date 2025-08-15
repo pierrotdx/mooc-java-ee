@@ -3,13 +3,13 @@ package com.directmedia.onlinestore.backoffice.controller;
 import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Work;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
@@ -20,8 +20,11 @@ public class CatalogueServlet extends HttpServlet {
         if (listOfWorks.isEmpty()) {
             setup();
         }
-        PrintWriter out = resp.getWriter();
-        display(out);
+
+        req.setAttribute("works", listOfWorks);
+
+        RequestDispatcher disp = req.getRequestDispatcher("/catalogue.jsp");
+        disp.forward(req, resp);
     }
 
     private static void setup() {
@@ -48,13 +51,5 @@ public class CatalogueServlet extends HttpServlet {
         work3.setRelease(1972);
         listOfWorks.add(work3);
         work3.setSummary("L'histoire de damnation Michael Corleone.");
-    }
-
-    private static void display(PrintWriter out) {
-        listOfWorks.forEach(work -> {
-            String title = work.getTitle();
-            int release = work.getRelease();
-            out.printf("%s (%d)\n", title, release);
-        });
     }
 }
