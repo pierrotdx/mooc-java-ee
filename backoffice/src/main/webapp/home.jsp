@@ -1,4 +1,5 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" %>
+<%@ page isELIgnored="false" %>
 
 <!DOCTYPE html>
 <html>
