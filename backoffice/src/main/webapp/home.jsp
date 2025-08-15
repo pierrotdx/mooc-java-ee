@@ -5,6 +5,8 @@
 <html>
     <head>
         <title>Backoffice home</title>
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/application.js"></script>
     </head>
     <body>
         <h1>OnlineStore (backoffice - jsp)</h1>
@@ -12,7 +14,7 @@
         <div>
             <nav>
                 <ul>
-                    <li><a href="catalogue">Accès au catalogue des oeuvres</a></li>
+                    <li><a href="catalogue">Afficher le catalogue des oeuvres</a></li>
                     <li><a href="add-work-form.html">Ajouter une oeuvre au catalogue</a></li>
                 </ul>
             </nav>
