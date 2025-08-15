@@ -1,11 +1,6 @@
 <%@page pageEncoding="UTF-8" contentType="text/html" %>
 <%@ page isELIgnored="false" %>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-
-<%@page import="com.directmedia.onlinestore.core.entity.Artist" %>
-<%@page import="com.directmedia.onlinestore.core.entity.Work" %>
-<%@page import="com.directmedia.onlinestore.core.entity.Catalog" %>
 
 <!DOCTYPE html>
 <html>
