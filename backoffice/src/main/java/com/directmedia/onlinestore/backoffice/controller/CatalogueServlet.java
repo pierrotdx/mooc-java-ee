@@ -2,14 +2,15 @@ package com.directmedia.onlinestore.backoffice.controller;
 
 import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Work;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
@@ -20,11 +21,10 @@ public class CatalogueServlet extends HttpServlet {
         if (listOfWorks.isEmpty()) {
             setup();
         }
-
-        req.setAttribute("works", listOfWorks);
-
-        RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/catalogue.jsp");
-        disp.forward(req, resp);
+        resp.setContentType("application/json");
+        PrintWriter out = resp.getWriter();
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.writeValue(out, listOfWorks);
     }
 
     private static void setup() {
