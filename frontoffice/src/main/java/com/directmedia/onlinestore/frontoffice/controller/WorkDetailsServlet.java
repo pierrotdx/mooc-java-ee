@@ -20,7 +20,7 @@ public class WorkDetailsServlet extends HttpServlet {
         try {
             Work work = Catalog.getWork(id);
             req.setAttribute("work", work);
-            RequestDispatcher disp = req.getRequestDispatcher("/work-details.jsp");
+            RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/work-details.jsp");
             disp.forward(req, resp);
         } catch (Exception exception) {
             throw new ServletException(exception.getMessage());

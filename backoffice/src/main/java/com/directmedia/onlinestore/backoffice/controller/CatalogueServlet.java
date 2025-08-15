@@ -23,7 +23,7 @@ public class CatalogueServlet extends HttpServlet {
 
         req.setAttribute("works", listOfWorks);
 
-        RequestDispatcher disp = req.getRequestDispatcher("/catalogue.jsp");
+        RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/catalogue.jsp");
         disp.forward(req, resp);
     }
 
