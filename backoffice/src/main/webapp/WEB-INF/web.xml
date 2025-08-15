@@ -14,14 +14,4 @@
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
     </servlet-mapping>
-
-    <servlet>
-        <servlet-name>Catalogue</servlet-name>
-        <jsp-file>/catalogue.jsp</jsp-file>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>Catalogue</servlet-name>
-        <url-pattern>/catalogue</url-pattern>
-    </servlet-mapping>
 </web-app>

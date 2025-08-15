@@ -13,7 +13,7 @@ import java.io.PrintWriter;
 
 import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
-@WebServlet(name = "catalogueOld", urlPatterns = { "/catalogueOld" })
+@WebServlet(name = "catalogue", urlPatterns = { "/catalogue" })
 public class CatalogueServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
