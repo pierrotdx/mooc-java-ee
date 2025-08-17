@@ -4,10 +4,9 @@ import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Work;
 import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.util.Set;
 
 @Path("/work")
@@ -45,5 +44,16 @@ public class WorkResource {
         work3.setRelease(1972);
         listOfWorks.add(work3);
         work3.setSummary("L'histoire de damnation Michael Corleone.");
+    }
+
+    @POST
+    public Response add(@FormParam("title") String title, @FormParam("artist") String artistName, @FormParam("release") int release,  @FormParam("genre") String genre, @FormParam("summary") String summary) {
+        Work workToAdd = new Work(title);
+        Artist artist = new Artist(artistName);
+        workToAdd.setMainArtist(artist);
+        workToAdd.setRelease(release);
+        workToAdd.setGenre(genre);
+        workToAdd.setSummary(summary);
+        return Response.status(Response.Status.CREATED).build();
     }
 }
