@@ -8,10 +8,14 @@
         <option value="$PROJECT_DIR$/frontoffice/pom.xml" />
         <option value="$PROJECT_DIR$/backoffice/pom.xml" />
         <option value="$PROJECT_DIR$/services/pom.xml" />
+        <option value="$PROJECT_DIR$/backoffice-frontend/pom.xml" />
+        <option value="$PROJECT_DIR$/frontoffice-frontend/pom.xml" />
+        <option value="$PROJECT_DIR$/backoffice/backoffice-frontend/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/backoffice/backoffice-frontend/pom.xml" />
         <option value="$PROJECT_DIR$/backoffice/services/pom.xml" />
       </set>
     </option>

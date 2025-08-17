@@ -7,8 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
-        <module name="frontoffice" />
+        <module name="frontoffice-frontend" />
         <module name="services" />
+        <module name="frontoffice" />
+        <module name="backoffice-frontend" />
       </profile>
     </annotationProcessing>
   </component>
