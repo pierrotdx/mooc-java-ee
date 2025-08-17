@@ -1,30 +1,25 @@
-package com.directmedia.onlinestore.backoffice.controller;
+package com.directmedia.onlinestore.backoffice.resources;
 
 import com.directmedia.onlinestore.core.entity.Artist;
 import com.directmedia.onlinestore.core.entity.Work;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
-
 import static com.directmedia.onlinestore.core.entity.Catalog.listOfWorks;
 
-@WebServlet(name = "catalogue", urlPatterns = { "/catalogue" })
-public class CatalogueServlet extends HttpServlet {
-    @Override
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+import javax.ws.rs.GET;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+import java.util.Set;
+
+@Path("/catalogue")
+public class CatalogueResource {
+    @GET
+    @Path("/liste")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Set<Work> liste() {
         if (listOfWorks.isEmpty()) {
             setup();
         }
-        resp.setContentType("application/json");
-        PrintWriter out = resp.getWriter();
-        ObjectMapper objectMapper = new ObjectMapper();
-        objectMapper.writeValue(out, listOfWorks);
+        return listOfWorks;
     }
 
     private static void setup() {
