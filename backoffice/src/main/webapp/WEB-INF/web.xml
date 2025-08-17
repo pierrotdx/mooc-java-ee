@@ -4,14 +4,19 @@
 
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
-
     <servlet>
         <servlet-name>Home</servlet-name>
         <jsp-file>/home.jsp</jsp-file>
     </servlet>
-
     <servlet-mapping>
         <servlet-name>Home</servlet-name>
         <url-pattern>/home</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>javax.ws.rs.core.Application</servlet-name>
+        <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>
 </web-app>
