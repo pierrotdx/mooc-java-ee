@@ -8,7 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="core" />
         <module name="frontoffice" />
-        <module name="backoffice" />
+        <module name="services" />
       </profile>
     </annotationProcessing>
   </component>
