@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.directmedia.onlinestore</groupId>
   <artifactId>backoffice</artifactId>
-  <packaging>war</packaging>
-  <version>1.0</version>
+  <packaging>pom</packaging>
+    <version>1.0</version>
   <name>backoffice Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
