@@ -10,19 +10,18 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import java.util.Set;
 
-@Path("/catalogue")
-public class CatalogueResource {
+@Path("/work")
+public class WorkResource {
     @GET
-    @Path("/liste")
     @Produces(MediaType.APPLICATION_JSON)
-    public Set<Work> liste() {
+    public Set<Work> get() {
         if (listOfWorks.isEmpty()) {
-            setup();
+            setupCatalogue();
         }
         return listOfWorks;
     }
 
-    private static void setup() {
+    private static void setupCatalogue() {
         Work work1 = new Work("Le Comte de Monte-Cristo");
         Artist dumas = new Artist("Alexandre Dumas");
         work1.setMainArtist(dumas);

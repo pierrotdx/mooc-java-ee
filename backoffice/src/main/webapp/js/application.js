@@ -4,7 +4,7 @@ $(document).ready(function () {
 
         if ($('body').children().length<6) {
             $.ajax({
-                url: "rest/catalogue/liste",
+                url: "rest/work",
                 success: function (result) {
                     var catalog='';
                     result.forEach(function(nextWork){
